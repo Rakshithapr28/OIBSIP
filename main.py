@@ -1,19 +1,14 @@
-from assistant.speak import speak
-from assistant.speech import listen
+from assistant.ai_service import detect_intent
 
 
 def main():
-    speak("Hello Sagar, I am your AI Voice Assistant.")
 
-    while True:
-        command = listen()
+    user_input = input("You: ")
 
-        if command:
-            speak(f"You said {command}")
+    result = detect_intent(user_input)
 
-            if "exit" in command or "bye" in command:
-                speak("Goodbye! Have a nice day.")
-                break
+    print("\nDetected Intent:\n")
+    print(result)
 
 
 if __name__ == "__main__":
