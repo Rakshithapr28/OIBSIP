@@ -1,6 +1,7 @@
 from assistant.speak import speak
 from assistant.weather import get_weather
 from assistant.time_service import get_current_time, get_current_date
+from assistant.website import open_website
 
 
 def route(intent_data):
@@ -44,6 +45,18 @@ def route(intent_data):
         speak(current_date)
 
     # -------------------------------
+    # Open Website
+    # -------------------------------
+    elif intent == "open_website":
+        website = intent_data.get("website")
+
+        if website:
+            response = open_website(website)
+            speak(response)
+        else:
+            speak("Please tell me which website you want to open.")
+
+    # -------------------------------
     # Reminder
     # -------------------------------
     elif intent == "reminder":
@@ -55,7 +68,6 @@ def route(intent_data):
     # -------------------------------
     elif intent == "send_email":
         recipient = intent_data.get("recipient")
-        message = intent_data.get("message")
 
         speak(f"Preparing to send an email to {recipient}.")
 

@@ -94,6 +94,13 @@ Date
     "intent":"date"
 }
 
+Open Website
+
+{
+    "intent":"open_website",
+    "website":"youtube"
+}
+
 Reminder
 
 {
@@ -146,6 +153,41 @@ User: What's the date today?
 
 {
     "intent":"date"
+}
+
+User: Open YouTube
+
+{
+    "intent":"open_website",
+    "website":"youtube"
+}
+
+User: Open Google
+
+{
+    "intent":"open_website",
+    "website":"google"
+}
+
+User: Open GitHub
+
+{
+    "intent":"open_website",
+    "website":"github"
+}
+
+User: Open Gmail
+
+{
+    "intent":"open_website",
+    "website":"gmail"
+}
+
+User: Open LinkedIn
+
+{
+    "intent":"open_website",
+    "website":"linkedin"
 }
 
 Rules:
