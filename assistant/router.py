@@ -1,5 +1,6 @@
 from assistant.speak import speak
 from assistant.weather import get_weather
+from assistant.time_service import get_current_time, get_current_date
 
 
 def route(intent_data):
@@ -27,6 +28,20 @@ def route(intent_data):
             speak(weather_report)
         else:
             speak("Please tell me the city name.")
+
+    # -------------------------------
+    # Time
+    # -------------------------------
+    elif intent == "time":
+        current_time = get_current_time()
+        speak(current_time)
+
+    # -------------------------------
+    # Date
+    # -------------------------------
+    elif intent == "date":
+        current_date = get_current_date()
+        speak(current_date)
 
     # -------------------------------
     # Reminder

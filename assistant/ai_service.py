@@ -82,6 +82,18 @@ Weather
     "city":"Bangalore"
 }
 
+Time
+
+{
+    "intent":"time"
+}
+
+Date
+
+{
+    "intent":"date"
+}
+
 Reminder
 
 {
@@ -108,6 +120,32 @@ Exit
 
 {
     "intent":"exit"
+}
+
+Examples:
+
+User: What time is it?
+
+{
+    "intent":"time"
+}
+
+User: Tell me the current time.
+
+{
+    "intent":"time"
+}
+
+User: What is today's date?
+
+{
+    "intent":"date"
+}
+
+User: What's the date today?
+
+{
+    "intent":"date"
 }
 
 Rules:
