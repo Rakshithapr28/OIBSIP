@@ -2,6 +2,7 @@ from assistant.speech import listen
 from assistant.speak import speak
 from assistant.ai_service import detect_intent
 from assistant.router import route
+from assistant.local_handler import handle_local_command
 
 
 def main():
@@ -16,16 +17,28 @@ def main():
         if not user_input:
             continue
 
-        # Ask Gemini to understand the request
-        intent_data = detect_intent(user_input)
+        # ---------------------------------------
+        # Step 1: Handle local commands first
+        # ---------------------------------------
+        intent_data = handle_local_command(user_input)
+
+        # ---------------------------------------
+        # Step 2: If not a local command, use Gemini
+        # ---------------------------------------
+        if intent_data is None:
+            intent_data = detect_intent(user_input)
 
         print("\nIntent Data:")
         print(intent_data)
 
-        # Route the request
+        # ---------------------------------------
+        # Step 3: Route the request
+        # ---------------------------------------
         route(intent_data)
 
-        # Exit assistant
+        # ---------------------------------------
+        # Step 4: Exit
+        # ---------------------------------------
         if intent_data.get("intent") == "exit":
             break
 
