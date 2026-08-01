@@ -2,6 +2,10 @@ from assistant.speak import speak
 from assistant.weather import get_weather
 from assistant.time_service import get_current_time, get_current_date
 from assistant.website import open_website
+from assistant.web_search import search_web
+from assistant.application import open_application
+from assistant.reminder import set_reminder
+from assistant.email_service import send_email
 
 
 def route(intent_data):
@@ -57,30 +61,62 @@ def route(intent_data):
             speak("Please tell me which website you want to open.")
 
     # -------------------------------
-    # Reminder
+    # Open Application
     # -------------------------------
-    elif intent == "reminder":
-        minutes = intent_data.get("minutes")
-        speak(f"Setting a reminder for {minutes} minutes.")
+    elif intent == "open_application":
+        application = intent_data.get("application")
 
-    # -------------------------------
-    # Send Email
-    # -------------------------------
-    elif intent == "send_email":
-        recipient = intent_data.get("recipient")
-
-        speak(f"Preparing to send an email to {recipient}.")
-
-        # We'll implement email_service.py later.
+        if application:
+            response = open_application(application)
+            speak(response)
+        else:
+            speak("Please tell me which application you want to open.")
 
     # -------------------------------
     # Web Search
     # -------------------------------
     elif intent == "search_web":
         query = intent_data.get("query")
-        speak(f"Searching the web for {query}")
 
-        # We'll implement search.py later.
+        if query:
+            response = search_web(query)
+            speak(response)
+        else:
+            speak("Please tell me what you want to search.")
+
+    # -------------------------------
+    # Reminder
+    # -------------------------------
+    elif intent == "reminder":
+        minutes = intent_data.get("minutes")
+
+        if minutes:
+            response = set_reminder(minutes)
+            speak(response)
+        else:
+            speak("Please tell me after how many minutes to remind you.")
+
+    # -------------------------------
+    # Send Email
+    # -------------------------------
+    elif intent == "send_email":
+
+        recipient_email = intent_data.get("recipient_email")
+        subject = intent_data.get("subject")
+        message = intent_data.get("message")
+
+        if recipient_email and subject and message:
+
+            response = send_email(
+                recipient_email,
+                subject,
+                message
+            )
+
+            speak(response)
+
+        else:
+            speak("Please provide the recipient email, subject, and message.")
 
     # -------------------------------
     # Exit
