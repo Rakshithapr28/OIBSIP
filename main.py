@@ -7,7 +7,7 @@ from assistant.local_handler import handle_local_command
 
 def main():
 
-    speak("Hello Sagar. I am your AI Voice Assistant.")
+    speak("Hello Rakshitha. I am your AI Voice Assistant.")
 
     while True:
 

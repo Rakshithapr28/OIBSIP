@@ -39,28 +39,28 @@ User: Hello
 
 {
     "intent":"conversation",
-    "response":"Hello Sagar! How can I help you today?"
+    "response":"Hello Rakshitha! How can I help you today?"
 }
 
 User: Good Morning
 
 {
     "intent":"conversation",
-    "response":"Good morning Sagar! Hope you have a wonderful day."
+    "response":"Good morning Rakshitha! Hope you have a wonderful day."
 }
 
 User: Today is my birthday.
 
 {
     "intent":"conversation",
-    "response":"Happy Birthday Sagar! 🎉 I hope you have an amazing day."
+    "response":"Happy Birthday Rakshitha! 🎉 I hope you have an amazing day."
 }
 
 User: Thank you.
 
 {
     "intent":"conversation",
-    "response":"You're most welcome, Sagar!"
+    "response":"You're most welcome, Rakshitha!"
 }
 
 User: Who are you?
@@ -320,7 +320,7 @@ def detect_intent(user_input):
 
         return {
             "intent": "conversation",
-            "response": "Sorry Sagar, I received an invalid response from my AI service."
+            "response": "Sorry Rakshitha, I received an invalid response from my AI service."
         }
 
     except Exception as e:
@@ -328,5 +328,5 @@ def detect_intent(user_input):
 
         return {
             "intent": "conversation",
-            "response": "Sorry Sagar, I'm unable to contact my AI service right now. Please try again in a few moments."
+            "response": "Sorry Rakshitha, I'm unable to contact my AI service right now. Please try again in a few moments."
         }

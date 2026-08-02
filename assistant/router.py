@@ -122,10 +122,10 @@ def route(intent_data):
     # Exit
     # -------------------------------
     elif intent == "exit":
-        speak("Goodbye Sagar! Have a great day.")
+        speak("Goodbye Rakshitha! Have a great day.")
 
     # -------------------------------
     # Unknown Intent
     # -------------------------------
     else:
-        speak("Sorry Sagar, I couldn't understand your request.")
+        speak("Sorry Rakshitha, I couldn't understand your request.")

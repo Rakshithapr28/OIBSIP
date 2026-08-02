@@ -27,4 +27,4 @@ def set_reminder(minutes):
 
     reminder_thread.start()
 
-    return f"Okay Sagar. I will remind you in {minutes} minute{'s' if minutes > 1 else ''}."
+    return f"Okay Rakshitha. I will remind you in {minutes} minute{'s' if minutes > 1 else ''}."

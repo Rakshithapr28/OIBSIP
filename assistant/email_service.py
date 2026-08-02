@@ -36,4 +36,4 @@ def send_email(recipient_email, subject, body):
 
     except Exception as e:
         print(e)
-        return "Sorry Sagar, I couldn't send the email."
+        return "Sorry Rakshitha, I couldn't send the email."
